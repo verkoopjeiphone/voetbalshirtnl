@@ -1,610 +1,723 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VerkoopJeiPhone</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VoetbalshirtsNL – Officiële Replica Shirts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --cream: #F7F4EF;
-      --white: #FDFCFA;
-      --stone: #E2DDD6;
-      --muted: #8C8680;
-      --dark: #2C2825;
-      --green: #5BADA0;
+      --oranje: #FF5500;
+      --oranje-donker: #cc4400;
+      --zwart: #0a0a0a;
+      --wit: #ffffff;
+      --grijs: #f4f4f2;
+      --tekst: #1a1a1a;
+      --subtitel: #888;
     }
 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--cream);
-      color: var(--dark);
-      font-size: 16px;
-      line-height: 1.6;
+      font-family: 'Barlow', sans-serif;
+      background: var(--wit);
+      color: var(--tekst);
+      overflow-x: hidden;
     }
 
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(247,244,239,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--stone);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 6%;
-      height: 64px;
+      padding: 0 48px;
+      height: 68px;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #eee;
     }
 
     .logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.2rem;
-      color: var(--dark);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.45rem;
+      letter-spacing: -0.5px;
+      color: var(--zwart);
       text-decoration: none;
-      letter-spacing: -0.02em;
     }
-
-    .logo span { color: var(--green); }
+    .logo span { color: var(--oranje); }
 
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 36px;
       list-style: none;
-      align-items: center;
     }
-
     .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--tekst);
       text-decoration: none;
-      color: var(--muted);
-      font-size: 0.9rem;
       transition: color 0.2s;
     }
+    .nav-links a:hover { color: var(--oranje); }
 
-    .nav-links a:hover { color: var(--dark); }
-
-    .nav-btn {
-      background: var(--dark) !important;
-      color: var(--cream) !important;
-      padding: 0.5rem 1.3rem;
-      border-radius: 100px;
-      font-weight: 500 !important;
-      transition: background 0.2s !important;
+    .btn-primary {
+      background: var(--oranje);
+      color: var(--wit);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: none;
+      padding: 12px 28px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+    }
+    .btn-primary:hover {
+      background: var(--oranje-donker);
+      transform: translateY(-1px);
     }
 
-    .nav-btn:hover { background: var(--green) !important; }
+    .btn-secondary {
+      background: transparent;
+      color: var(--tekst);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 2px solid var(--tekst);
+      padding: 12px 28px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+    }
+    .btn-secondary:hover {
+      background: var(--tekst);
+      color: var(--wit);
+      transform: translateY(-1px);
+    }
 
     .hero {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0 6%;
-      padding-top: 64px;
-      max-width: 820px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 100px 48px 60px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero-label {
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
+    .hero-badge {
+      display: inline-block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--green);
-      font-weight: 500;
-      margin-bottom: 1.8rem;
+      color: var(--oranje);
+      border: 1.5px solid var(--oranje);
+      padding: 5px 14px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.6s ease both;
     }
 
     .hero h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(3rem, 6vw, 5rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-      margin-bottom: 1.8rem;
-      color: var(--dark);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(4rem, 8vw, 7.5rem);
+      line-height: 0.92;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.6s 0.1s ease both;
     }
 
-    .hero h1 em {
-      font-style: italic;
-      color: var(--green);
-    }
+    .hero h1 .accent { color: var(--oranje); }
 
     .hero p {
       font-size: 1.1rem;
-      color: var(--muted);
-      font-weight: 300;
-      max-width: 500px;
-      line-height: 1.8;
-      margin-bottom: 3rem;
+      line-height: 1.65;
+      color: #555;
+      max-width: 440px;
+      margin-bottom: 40px;
+      animation: fadeUp 0.6s 0.2s ease both;
     }
 
-    .hero-buttons {
+    .hero-cta {
       display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
+      gap: 16px;
+      animation: fadeUp 0.6s 0.3s ease both;
     }
 
-    .btn-dark {
-      background: var(--dark);
-      color: var(--cream);
-      padding: 0.9rem 2.2rem;
-      border-radius: 100px;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: background 0.2s, transform 0.15s;
+    .hero-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 16px;
+      padding-left: 32px;
+      animation: fadeIn 0.8s 0.3s ease both;
     }
 
-    .btn-dark:hover { background: var(--green); transform: translateY(-1px); }
+    .shirt-card {
+      background: #1a1a1a;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      aspect-ratio: 1;
+      transition: transform 0.3s;
+    }
+    .shirt-card:first-child {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+      aspect-ratio: auto;
+    }
+    .shirt-card:hover { transform: translateY(-4px); }
 
-    .btn-outline {
-      background: transparent;
-      color: var(--dark);
-      padding: 0.9rem 2.2rem;
-      border-radius: 100px;
-      text-decoration: none;
-      font-weight: 400;
-      font-size: 0.95rem;
-      border: 1px solid var(--stone);
-      transition: border-color 0.2s, transform 0.15s;
+    .shirt-card img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
     }
 
-    .btn-outline:hover { border-color: var(--dark); transform: translateY(-1px); }
-
-    .divider { border: none; border-top: 1px solid var(--stone); }
-
-    .section-label {
-      font-size: 0.78rem;
+    .shirt-label {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: var(--oranje);
+      color: var(--wit);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.7rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--green);
-      font-weight: 500;
-      margin-bottom: 1rem;
+      padding: 4px 10px;
     }
 
-    .section-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-    }
-
-    .section-sub {
-      color: var(--muted);
-      font-weight: 300;
-      max-width: 480px;
-      line-height: 1.8;
-      margin-bottom: 4rem;
-    }
-
-    #diensten {
-      padding: 7rem 6%;
-      background: var(--white);
-    }
-
-    .diensten-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--stone);
-      border: 1px solid var(--stone);
-      border-radius: 16px;
+    .ticker {
+      background: var(--oranje);
+      padding: 14px 0;
       overflow: hidden;
+      white-space: nowrap;
     }
 
-    .dienst {
-      background: var(--white);
-      padding: 2.5rem 2rem;
+    .ticker-inner {
+      display: inline-flex;
+      gap: 0;
+      animation: ticker 22s linear infinite;
+    }
+
+    .ticker-item {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--wit);
+      padding: 0 40px;
+    }
+
+    .ticker-item::before {
+      content: '◆';
+      margin-right: 40px;
+      opacity: 0.6;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+
+    .feature {
+      padding: 48px 36px;
+      border-right: 1px solid #eee;
       transition: background 0.2s;
     }
+    .feature:last-child { border-right: none; }
+    .feature:hover { background: var(--grijs); }
 
-    .dienst:hover { background: var(--cream); }
-
-    .dienst h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.3rem;
-      margin-bottom: 0.8rem;
+    .feature-icon {
+      font-size: 1.6rem;
+      margin-bottom: 16px;
     }
 
-    .dienst p {
-      color: var(--muted);
-      font-weight: 300;
-      font-size: 0.95rem;
-      line-height: 1.75;
-    }
-
-    #hoe-werkt-het {
-      padding: 7rem 6%;
-      background: var(--cream);
-    }
-
-    .stappen {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-      margin-top: 4rem;
-    }
-
-    .stap { border-top: 2px solid var(--dark); padding-top: 1.5rem; }
-
-    .stap-nr {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2rem;
-      color: var(--stone);
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .stap h3 {
-      font-family: 'DM Serif Display', serif;
+    .feature h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
       font-size: 1.15rem;
-      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
     }
 
-    .stap p {
-      color: var(--muted);
-      font-size: 0.9rem;
-      font-weight: 300;
-      line-height: 1.7;
-    }
-
-    #over-ons {
-      padding: 7rem 6%;
-      background: #3D3830;
-      color: var(--cream);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-    }
-
-    #over-ons .section-label { color: #7ECEC5; }
-
-    #over-ons .section-title {
-      color: var(--cream);
-      margin-bottom: 1.5rem;
-    }
-
-    #over-ons .section-title em {
-      font-style: italic;
-      color: #7ECEC5;
-    }
-
-    #over-ons p {
-      color: #9e9690;
-      font-weight: 300;
-      line-height: 1.85;
-      margin-bottom: 1.2rem;
-    }
-
-    .waarden {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px;
-      overflow: hidden;
-    }
-
-    .waarde {
-      background: rgba(255,255,255,0.03);
-      padding: 1.8rem 1.5rem;
-    }
-
-    .waarde h4 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.05rem;
-      color: var(--cream);
-      margin-bottom: 0.4rem;
-    }
-
-    .waarde p {
-      font-size: 0.83rem;
-      color: #6a6560;
-      margin: 0;
+    .feature p {
+      font-size: 0.875rem;
+      color: #777;
       line-height: 1.6;
     }
 
-    #contact {
-      padding: 7rem 6%;
-      background: var(--white);
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 6rem;
-      align-items: start;
+    .shirts-section {
+      padding: 100px 48px;
     }
 
-    #contact .section-title { margin-bottom: 1rem; }
-
-    .contact-intro {
-      color: var(--muted);
-      font-weight: 300;
-      line-height: 1.8;
-      margin-bottom: 2.5rem;
-    }
-
-    .contact-items {
+    .section-header {
       display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 56px;
     }
 
-    .contact-item {
-      font-size: 0.95rem;
-      color: var(--dark);
-      font-weight: 300;
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--oranje);
+      margin-bottom: 10px;
     }
 
-    .contact-item a {
-      color: var(--green);
-      text-decoration: none;
-      font-weight: 500;
-      transition: opacity 0.2s;
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -1px;
     }
 
-    .contact-item a:hover { opacity: 0.7; }
-
-    .form-wrap {
-      background: var(--cream);
-      border: 1px solid var(--stone);
-      border-radius: 20px;
-      padding: 2.5rem;
-    }
-
-    .form-group { margin-bottom: 1.3rem; }
-
-    label {
-      display: block;
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      color: var(--dark);
-      margin-bottom: 0.45rem;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      border: 1px solid var(--stone);
-      border-radius: 10px;
-      background: var(--white);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      color: var(--dark);
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      appearance: none;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--green);
-      box-shadow: 0 0 0 3px rgba(91,173,160,0.1);
-    }
-
-    textarea { min-height: 120px; resize: vertical; }
-
-    .form-row {
+    .shirts-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
 
-    .submit-btn {
-      width: 100%;
-      background: var(--dark);
-      color: var(--cream);
+    .product-card {
+      background: var(--grijs);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+
+    .product-img {
+      background: #1f1f1f;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-img img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .product-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,85,0,0.15) 0%, transparent 60%);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--oranje);
+      color: var(--wit);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      z-index: 1;
+    }
+
+    .product-info {
+      padding: 24px;
+    }
+
+    .product-info h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+
+    .product-info .sub {
+      font-size: 0.825rem;
+      color: #888;
+      margin-bottom: 16px;
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--oranje);
+    }
+
+    .btn-small {
+      background: var(--zwart);
+      color: var(--wit);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       border: none;
-      padding: 0.95rem;
-      border-radius: 10px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 500;
+      padding: 10px 20px;
       cursor: pointer;
       transition: background 0.2s;
-      margin-top: 0.4rem;
+    }
+    .btn-small:hover { background: var(--oranje); }
+
+    .bestel-section {
+      background: var(--zwart);
+      padding: 100px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
     }
 
-    .submit-btn:hover { background: var(--green); }
-
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 3rem 1rem;
+    .bestel-section h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(3rem, 5vw, 5rem);
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -1px;
+      color: var(--wit);
+      margin-bottom: 24px;
     }
 
-    .form-success h3 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.6rem;
-      margin-bottom: 0.6rem;
+    .bestel-section h2 span { color: var(--oranje); }
+
+    .bestel-section p {
+      color: #aaa;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 36px;
     }
 
-    .form-success p { color: var(--muted); font-weight: 300; }
+    .bestel-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .step-num {
+      width: 40px;
+      height: 40px;
+      background: var(--oranje);
+      color: var(--wit);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-text h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      color: var(--wit);
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    .step-text p {
+      font-size: 0.875rem;
+      color: #666;
+      margin-bottom: 0;
+    }
 
     footer {
-      background: #2C2825;
-      color: #5a5754;
-      text-align: center;
-      padding: 2rem 6%;
-      font-size: 0.82rem;
-      font-weight: 300;
+      background: #0a0a0a;
+      border-top: 1px solid #1f1f1f;
+      padding: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    footer a { color: #7ECEC5; text-decoration: none; }
+    footer .logo { color: var(--wit); }
 
-    @media (max-width: 768px) {
+    footer p {
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    footer nav a {
+      font-size: 0.8rem;
+      color: #555;
+      text-decoration: none;
+      margin-left: 28px;
+      transition: color 0.2s;
+    }
+    footer nav a:hover { color: var(--oranje); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
       .nav-links { display: none; }
-      .hero { min-height: auto; padding-top: 120px; padding-bottom: 5rem; }
-      .diensten-grid { grid-template-columns: 1fr; }
-      .stappen { grid-template-columns: 1fr; gap: 2rem; }
-      #over-ons { grid-template-columns: 1fr; gap: 3rem; }
-      .waarden { grid-template-columns: 1fr; }
-      #contact { grid-template-columns: 1fr; gap: 3rem; }
-      .form-row { grid-template-columns: 1fr; }
+      .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; }
+      .hero-visual { display: none; }
+      .features { grid-template-columns: 1fr 1fr; }
+      .shirts-grid { grid-template-columns: 1fr; }
+      .bestel-section { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
+      footer nav { margin-top: 8px; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="#" class="logo">VerkoopJe<span>iPhone</span></a>
+    <a class="logo" href="#">VOETBALSHIRTS<span>NL</span></a>
     <ul class="nav-links">
-      <li><a href="#diensten">Diensten</a></li>
-      <li><a href="#over-ons">Over ons</a></li>
+      <li><a href="#shirts">Shirts</a></li>
+      <li><a href="#bestellen">Bestellen</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="#contact" class="nav-btn">Offerte aanvragen</a></li>
     </ul>
+    <a href="https://wa.me/31600000000" class="btn-primary">Bestel nu</a>
   </nav>
 
   <section class="hero">
-    <p class="hero-label">Kopen &amp; Verkopen</p>
-    <h1>Jouw iPhone,<br><em>eerlijk</em> en<br>snel verhandeld</h1>
-    <p>Verkoop jouw iPhone voor de beste prijs, of vind een kwalitatief toestel tegen een eerlijk tarief. Transparant, betrouwbaar en persoonlijk.</p>
-    <div class="hero-buttons">
-      <a href="#contact" class="btn-dark">Verkoop je iPhone</a>
-      <a href="#diensten" class="btn-outline">Bekijk ons aanbod</a>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <section id="diensten">
-    <p class="section-label">Wat wij doen</p>
-    <h2 class="section-title">Onze diensten</h2>
-    <p class="section-sub">Of je nu wilt verkopen of een iPhone wilt kopen — wij regelen het snel, veilig en voor de beste prijs.</p>
-    <div class="diensten-grid">
-      <div class="dienst">
-        <h3>Verkoop je iPhone</h3>
-        <p>Stuur ons de specificaties van jouw toestel en ontvang binnen een dag een eerlijk bod. Bij akkoord betalen we direct uit.</p>
-      </div>
-      <div class="dienst">
-        <h3>Koop een iPhone</h3>
-        <p>Bekijk ons actuele aanbod van zorgvuldig gecontroleerde iPhones. Elk toestel wordt grondig getest voor verkoop.</p>
-      </div>
-      <div class="dienst">
-        <h3>Garantie &amp; zekerheid</h3>
-        <p>Alle toestellen worden geleverd met garantie. Geen verrassingen achteraf — transparantie staat bij ons voorop.</p>
+    <div class="hero-content">
+      <div class="hero-badge">Nederland Collectie 2024/25</div>
+      <h1>
+        DRAAG<br>
+        <span class="accent">ORANJE</span><br>
+        MET TROTS
+      </h1>
+      <p>Replica‑shirts van het Nederlands elftal. Thuis- en uitshirt nu beschikbaar. Snel geleverd, scherpe prijs.</p>
+      <div class="hero-cta">
+        <a href="https://wa.me/31600000000" class="btn-primary">Bestel nu</a>
+        <a href="tel:+31600000000" class="btn-secondary">Bel ons</a>
       </div>
     </div>
-  </section>
 
-  <hr class="divider">
-
-  <section id="hoe-werkt-het">
-    <p class="section-label">Zo werkt het</p>
-    <h2 class="section-title">In 3 stappen geregeld</h2>
-    <div class="stappen">
-      <div class="stap">
-        <span class="stap-nr">01</span>
-        <h3>Neem contact op</h3>
-        <p>Vul het formulier in of stuur een WhatsApp bericht. Vertel welk model je hebt en in welke staat.</p>
+    <div class="hero-visual">
+      <div class="shirt-card">
+        <img src="thuisshirt-oranje.jpg" alt="Nederlands elftal thuisshirt oranje 2024/25">
+        <div class="shirt-label">Thuisshirt</div>
       </div>
-      <div class="stap">
-        <span class="stap-nr">02</span>
-        <h3>Ontvang een bod</h3>
-        <p>Wij sturen je binnen 24 uur een eerlijk bod op basis van het model en de conditie.</p>
+      <div class="shirt-card">
+        <img src="uitshirt-wit.jpg" alt="Nederlands elftal uitshirt wit 2024/25">
+        <div class="shirt-label">Uitshirt</div>
       </div>
-      <div class="stap">
-        <span class="stap-nr">03</span>
-        <h3>Snel uitbetaald</h3>
-        <p>Bij akkoord ontvang je het bedrag direct. Veilig, snel en zonder gedoe.</p>
+      <div class="shirt-card">
+        <img src="thuisshirt-oranje.jpg" alt="Keepersshirt Nederland 2024/25">
+        <div class="shirt-label">Keeper</div>
       </div>
     </div>
   </section>
 
-  <section id="over-ons">
-    <div>
-      <p class="section-label">Over ons</p>
-      <h2 class="section-title">Gedreven om telefoons een <em>tweede leven</em> te geven</h2>
-      <p>Ik geloof dat een goede telefoon niet weggegooid hoeft te worden — hij verdient een tweede kans. Dat idee is de basis van VerkoopJeiPhone. Wat begon als een persoonlijke passie voor technologie, groeide uit tot een missie: iPhones op een eerlijke en duurzame manier een nieuw thuis geven.</p>
-      <p>Of je nu klaar bent met je oude toestel of op zoek bent naar een betrouwbare iPhone zonder nieuwprijs — ik zorg dat het eerlijk, snel en persoonlijk verloopt. Geen grote winkelketen, maar een mens die er echt voor je is.</p>
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-inner">
+      <span class="ticker-item">Snelle levering</span>
+      <span class="ticker-item">Bestellen via WhatsApp</span>
+      <span class="ticker-item">Replica shirts</span>
+      <span class="ticker-item">Betalen via iDEAL of Tikkie</span>
+      <span class="ticker-item">Nederland 2024/25</span>
+      <span class="ticker-item">Gratis verzending</span>
+      <span class="ticker-item">Snelle levering</span>
+      <span class="ticker-item">Bestellen via WhatsApp</span>
+      <span class="ticker-item">Replica shirts</span>
+      <span class="ticker-item">Betalen via iDEAL of Tikkie</span>
+      <span class="ticker-item">Nederland 2024/25</span>
+      <span class="ticker-item">Gratis verzending</span>
     </div>
-    <div class="waarden">
-      <div class="waarde">
-        <h4>Eerlijkheid</h4>
-        <p>Geen verborgen kosten of onduidelijke afspraken.</p>
-      </div>
-      <div class="waarde">
-        <h4>Snelheid</h4>
-        <p>Bod binnen 24 uur, uitbetaling dezelfde dag.</p>
-      </div>
-      <div class="waarde">
-        <h4>Betrouwbaar</h4>
-        <p>Alle toestellen gecontroleerd en met garantie.</p>
-      </div>
-      <div class="waarde">
-        <h4>Persoonlijk</h4>
-        <p>Altijd een mens aan de andere kant van de lijn.</p>
-      </div>
+  </div>
+
+  <section class="features">
+    <div class="feature">
+      <div class="feature-icon">SL</div>
+      <h3>Snelle levering</h3>
+      <p>Binnen 2–3 werkdagen bij jou thuis, met track & trace.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">WA</div>
+      <h3>Bestellen via WhatsApp</h3>
+      <p>Stuur een bericht, wij regelen de rest.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">RP</div>
+      <h3>Replica shirts</h3>
+      <p>Strakke kwaliteit voor een scherpe prijs.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">ID</div>
+      <h3>iDEAL of Tikkie</h3>
+      <p>Betaal veilig en vertrouwd op jouw manier.</p>
     </div>
   </section>
 
-  <section id="contact">
-    <div>
-      <p class="section-label">Contact</p>
-      <h2 class="section-title">Neem contact met ons op</h2>
-      <p class="contact-intro">Heb je een iPhone te verkopen, of op zoek naar een toestel? Stuur ons een bericht en we reageren binnen één werkdag.</p>
-      <div class="contact-items">
-        <div class="contact-item">verkoopjeiphone@gmail.com</div>
-        <div class="contact-item">0630576584</div>
-        <div class="contact-item">
-          <a href="https://wa.me/31630576584" target="_blank">App ons op WhatsApp →</a>
+  <section class="shirts-section" id="shirts">
+    <div class="section-header">
+      <div>
+        <div class="section-label">Collectie 2024/25</div>
+        <h2 class="section-title">KIES JOUW<br>SHIRT</h2>
+      </div>
+      <a href="https://wa.me/31600000000" class="btn-primary">Alle shirts bekijken</a>
+    </div>
+
+    <div class="shirts-grid">
+      <div class="product-card">
+        <div class="product-img">
+          <img src="thuisshirt-oranje.jpg" alt="Nederlands elftal thuisshirt oranje 2024/25">
+          <div class="product-badge">Populairste</div>
         </div>
-      </div>
-    </div>
-
-    <div class="form-wrap">
-      <form id="contactForm">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="naam">Naam</label>
-            <input type="text" id="naam" placeholder="Jouw naam" required>
-          </div>
-          <div class="form-group">
-            <label for="email">E-mailadres</label>
-            <input type="email" id="email" placeholder="jouw@email.nl" required>
+        <div class="product-info">
+          <h3>Thuisshirt</h3>
+          <p class="sub">Nederland — seizoen 2024/25</p>
+          <div class="product-footer">
+            <span class="price">€24,99</span>
+            <button class="btn-small" onclick="window.location.href='https://wa.me/31600000000'">Bestellen</button>
           </div>
         </div>
-        <div class="form-group">
-          <label for="telefoon">Telefoonnummer</label>
-          <input type="tel" id="telefoon" placeholder="06 ...">
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="uitshirt-wit.jpg" alt="Nederlands elftal uitshirt wit 2024/25">
         </div>
-        <div class="form-group">
-          <label for="onderwerp">Waarvoor neem je contact op?</label>
-          <select id="onderwerp">
-            <option value="">Selecteer een optie</option>
-            <option value="verkopen">Ik wil mijn iPhone verkopen</option>
-            <option value="kopen">Ik wil een iPhone kopen</option>
-            <option value="anders">Anders</option>
-          </select>
+        <div class="product-info">
+          <h3>Uitshirt</h3>
+          <p class="sub">Nederland — seizoen 2024/25</p>
+          <div class="product-footer">
+            <span class="price">€24,99</span>
+            <button class="btn-small" onclick="window.location.href='https://wa.me/31600000000'">Bestellen</button>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="bericht">Bericht</label>
-          <textarea id="bericht" placeholder="Welk model, welke staat, wat je zoekt..."></textarea>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="thuisshirt-oranje.jpg" alt="Keepersshirt Nederland 2024/25">
+          <div class="product-badge">Nieuw</div>
         </div>
-        <button type="submit" class="submit-btn">Verstuur bericht</button>
-      </form>
-      <div class="form-success" id="formSuccess">
-        <h3>Bericht ontvangen</h3>
-        <p>We nemen binnen één werkdag contact met je op.</p>
+        <div class="product-info">
+          <h3>Keepersshirt</h3>
+          <p class="sub">Nederland — seizoen 2024/25</p>
+          <div class="product-footer">
+            <span class="price">€24,99</span>
+            <button class="btn-small" onclick="window.location.href='https://wa.me/31600000000'">Bestellen</button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer>
-    <p>© 2025 VerkoopJeiPhone &nbsp;·&nbsp; <a href="https://wa.me/31630576584" target="_blank">WhatsApp</a> &nbsp;·&nbsp; verkoopjeiphone@gmail.com</p>
+  <section class="bestel-section" id="bestellen">
+    <div>
+      <h2>ZO SIMPEL<br>BESTEL JE BIJ<br><span>ONS</span></h2>
+      <p>Geen ingewikkelde webshop. Gewoon direct contact via WhatsApp en binnen no-time jouw shirt in huis.</p>
+      <a href="https://wa.me/31600000000" class="btn-primary" style="font-size:1.1rem;padding:16px 36px;">
+        Start bestelling via WhatsApp
+      </a>
+    </div>
+    <div class="bestel-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <h4>Stuur een bericht</h4>
+          <p>Laat weten welk shirt je wilt en in welke maat.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <h4>Ontvang bevestiging</h4>
+          <p>Je krijgt een orderbevestiging en betaalverzoek via Tikkie of iDEAL.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <h4>Betaal & wacht</h4>
+          <p>Na betaling sturen we je shirt direct op. Binnen 2–3 dagen in huis.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">
+          <h4>Draag met trots</h4>
+          <p>Jouw shirt is binnen. Klaar voor wedstrijddag.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <a class="logo" href="#">VOETBALSHIRTS<span>NL</span></a>
+    <p>© 2025 VoetbalshirtsNL. Alle rechten voorbehouden.</p>
+    <nav>
+      <a href="#shirts">Shirts</a>
+      <a href="#bestellen">Bestellen</a>
+      <a href="#contact">Contact</a>
+      <a href="https://wa.me/31600000000">WhatsApp</a>
+    </nav>
   </footer>
-
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      document.getElementById('contactForm').style.display = 'none';
-      document.getElementById('formSuccess').style.display = 'block';
-    });
-  </script>
 
 </body>
 </html>
