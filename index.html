@@ -152,7 +152,6 @@
       border: 1.5px solid var(--oranje);
       padding: 5px 14px;
       margin-bottom: 28px;
-      animation: fadeUp 0.6s ease both;
     }
 
     .hero h1 {
@@ -163,7 +162,6 @@
       text-transform: uppercase;
       letter-spacing: -2px;
       margin-bottom: 32px;
-      animation: fadeUp 0.6s 0.1s ease both;
     }
 
     .hero h1 .accent { color: var(--oranje); }
@@ -174,13 +172,11 @@
       color: #555;
       max-width: 440px;
       margin-bottom: 40px;
-      animation: fadeUp 0.6s 0.2s ease both;
     }
 
     .hero-cta {
       display: flex;
       gap: 16px;
-      animation: fadeUp 0.6s 0.3s ease both;
     }
 
     .hero-visual {
@@ -188,7 +184,6 @@
       grid-template-columns: 1fr 1fr;
       gap: 16px;
       padding-left: 32px;
-      animation: fadeIn 0.8s 0.3s ease both;
     }
 
     .shirt-card {
@@ -562,16 +557,6 @@
     }
     footer nav a:hover { color: var(--oranje); }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
     @keyframes ticker {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
@@ -594,10 +579,11 @@
 <body>
 
   <nav>
-    <a class="logo" href="#">VOETBALSHIRTS<span>NL</span></a>
+    <a class="logo" href="index.html">VOETBALSHIRTS<span>NL</span></a>
     <ul class="nav-links">
       <li><a href="#shirts">Shirts</a></li>
       <li><a href="#bestellen">Bestellen</a></li>
+      <li><a href="over-ons.html">Over ons</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:12px;">
@@ -614,7 +600,7 @@
         <span class="accent">ORANJE</span><br>
         MET TROTS
       </h1>
-      <p>Oranje shirts geïnspireerd op het Nederlands elftal. Thuis- en uitshirt nu beschikbaar. Snel geleverd, scherpe prijs.</p>
+      <p>Oranje shirts geïnspireerd op het Nederlands elftal. Thuisshirt en uitshirt nu beschikbaar. Snel geleverd, scherpe prijs.</p>
       <div class="hero-cta">
         <a href="#bestellen" class="btn-primary">Bestel nu</a>
         <a href="https://wa.me/31630576584" class="btn-secondary">WhatsApp</a>
@@ -767,11 +753,12 @@
   </section>
 
   <footer id="contact">
-    <a class="logo" href="#">VOETBALSHIRTS<span>NL</span></a>
+    <a class="logo" href="index.html">VOETBALSHIRTS<span>NL</span></a>
     <p>© 2025 VoetbalshirtsNL. Alle rechten voorbehouden.</p>
     <nav>
       <a href="#shirts">Shirts</a>
       <a href="#bestellen">Bestellen</a>
+      <a href="over-ons.html">Over ons</a>
       <a href="mailto:stan-zakelijk@hotmail.com">E-mail</a>
       <a href="https://wa.me/31630576584" class="whatsapp-icon" aria-label="WhatsApp contact">W</a>
     </nav>
