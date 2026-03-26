@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VoetbalshirtsNL – Oranje shirts bestellen</title>
+  <title>VoetbalshirtsNL – Fan-versie shirts 2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -13,11 +13,7 @@
       --wit: #ffffff;
       --grijs: #f4f4f2;
       --grijs-licht: #faf9f7;
-      --accent-licht: #fff5ec;
-      --input-bg: #ffffff;
-      --input-border: #d6d3ce;
       --tekst: #1a1a1a;
-      --subtitel: #888;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,7 +36,6 @@
       padding: 0 48px;
       height: 68px;
       background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(10px);
       border-bottom: 1px solid #eee;
     }
 
@@ -49,24 +44,23 @@
       font-weight: 900;
       font-size: 1.45rem;
       letter-spacing: -0.5px;
-      color: var(--zwart);
       text-decoration: none;
+      color: var(--zwart);
     }
     .logo span { color: var(--oranje); }
 
     .nav-links {
+      list-style: none;
       display: flex;
       gap: 36px;
-      list-style: none;
     }
     .nav-links a {
       font-size: 0.875rem;
       font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--tekst);
       text-decoration: none;
-      transition: color 0.2s;
+      color: var(--tekst);
     }
     .nav-links a:hover { color: var(--oranje); }
 
@@ -82,14 +76,9 @@
       padding: 12px 28px;
       cursor: pointer;
       text-decoration: none;
-      display: inline-block;
-      transition: background 0.2s, transform 0.15s;
       clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
     }
-    .btn-primary:hover {
-      background: var(--oranje-donker);
-      transform: translateY(-1px);
-    }
+    .btn-primary:hover { background: var(--oranje-donker); }
 
     .btn-secondary {
       background: transparent;
@@ -103,32 +92,17 @@
       padding: 12px 28px;
       cursor: pointer;
       text-decoration: none;
-      display: inline-block;
-      transition: all 0.2s;
       clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
     }
-    .btn-secondary:hover {
-      background: var(--tekst);
-      color: var(--wit);
-      transform: translateY(-1px);
-    }
+    .btn-secondary:hover { background: var(--tekst); color: var(--wit); }
 
     .whatsapp-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: #25D366;
-      color: #fff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: #25D366; color: #fff;
+      display: inline-flex; align-items: center; justify-content: center;
       font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
+      font-weight: 700; font-size: 1rem;
       text-decoration: none;
-    }
-    .whatsapp-icon:hover {
-      background: #1da851;
     }
 
     .hero {
@@ -137,8 +111,6 @@
       grid-template-columns: 1fr 1fr;
       align-items: center;
       padding: 100px 48px 60px;
-      position: relative;
-      overflow: hidden;
     }
 
     .hero-badge {
@@ -163,7 +135,6 @@
       letter-spacing: -2px;
       margin-bottom: 32px;
     }
-
     .hero h1 .accent { color: var(--oranje); }
 
     .hero p {
@@ -176,7 +147,7 @@
     .hero-cta {
       display: flex;
       gap: 16px;
-      margin-top: 8px;
+      margin-top: 16px;
     }
 
     .hero-visual {
@@ -192,24 +163,16 @@
       overflow: hidden;
       position: relative;
       aspect-ratio: 4 / 3;
-      transition: transform 0.3s;
     }
-    .shirt-card:hover { transform: translateY(-4px); }
-
     .shirt-card img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      background: #1a1a1a;
-      display: block;
     }
-
     .shirt-label {
       position: absolute;
-      bottom: 12px;
-      left: 12px;
-      background: var(--oranje);
-      color: var(--wit);
+      bottom: 12px; left: 12px;
+      background: var(--oranje); color: #fff;
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 700;
       font-size: 0.7rem;
@@ -224,23 +187,19 @@
       overflow: hidden;
       white-space: nowrap;
     }
-
     .ticker-inner {
       display: inline-flex;
-      gap: 0;
       animation: ticker 22s linear infinite;
     }
-
     .ticker-item {
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 700;
       font-size: 0.85rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--wit);
+      color: #fff;
       padding: 0 40px;
     }
-
     .ticker-item::before {
       content: '◆';
       margin-right: 40px;
@@ -254,15 +213,11 @@
       border-bottom: 1px solid #eee;
       background: var(--grijs-licht);
     }
-
     .feature {
       padding: 32px 28px;
       border-right: 1px solid #eee;
-      transition: background 0.2s, transform 0.2s;
     }
     .feature:last-child { border-right: none; }
-    .feature:hover { background: #ffffff; transform: translateY(-2px); }
-
     .feature h3 {
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 700;
@@ -271,25 +226,16 @@
       letter-spacing: 0.06em;
       margin-bottom: 6px;
     }
-
     .feature p {
       font-size: 0.9rem;
       color: #777;
-      line-height: 1.6;
     }
 
     .shirts-section {
       padding: 100px 48px;
       background: var(--grijs-licht);
     }
-
-    .section-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 56px;
-    }
-
+    .section-header { margin-bottom: 56px; }
     .section-label {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 0.75rem;
@@ -299,13 +245,11 @@
       color: var(--oranje);
       margin-bottom: 10px;
     }
-
     .section-title {
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 900;
       font-size: clamp(2.5rem, 5vw, 4rem);
       text-transform: uppercase;
-      line-height: 0.95;
       letter-spacing: -1px;
     }
 
@@ -314,20 +258,12 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
     }
-
     .product-card {
       background: #ffffff;
       border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
       border: 1px solid #e5e2dc;
+      overflow: hidden;
     }
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    }
-
     .product-img {
       background: #1f1f1f;
       height: 260px;
@@ -335,43 +271,24 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      overflow: hidden;
     }
-
     .product-img img {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      background: #1f1f1f;
-      display: block;
     }
-
-    .product-img::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,85,0,0.12) 0%, transparent 60%);
-    }
-
     .product-badge {
       position: absolute;
-      top: 16px;
-      right: 16px;
-      background: var(--oranje);
-      color: var(--wit);
+      top: 16px; right: 16px;
+      background: var(--oranje); color: #fff;
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 700;
       font-size: 0.7rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 5px 12px;
-      z-index: 1;
     }
-
-    .product-info {
-      padding: 24px;
-    }
-
+    .product-info { padding: 24px; }
     .product-info h3 {
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 700;
@@ -380,156 +297,21 @@
       letter-spacing: 0.04em;
       margin-bottom: 4px;
     }
-
     .product-info .sub {
       font-size: 0.825rem;
       color: #888;
       margin-bottom: 16px;
     }
-
     .product-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-
     .price {
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 900;
       font-size: 1.5rem;
       color: var(--oranje);
-    }
-
-    .btn-small {
-      background: var(--zwart);
-      color: var(--wit);
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .btn-small:hover { background: var(--oranje); }
-
-    .bestel-section {
-      background: var(--accent-licht);
-      padding: 100px 48px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: flex-start;
-      border-top: 1px solid #f0e6dd;
-    }
-
-    .bestel-section h2 {
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900;
-      font-size: clamp(3rem, 5vw, 5rem);
-      text-transform: uppercase;
-      line-height: 0.95;
-      letter-spacing: -1px;
-      color: var(--zwart);
-      margin-bottom: 24px;
-    }
-
-    .bestel-section h2 span { color: var(--oranje); }
-
-    .bestel-section p {
-      color: #555;
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 18px;
-    }
-
-    .bestel-steps {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      width: 100%;
-    }
-
-    .bestel-card {
-      background: #ffffff;
-      border-radius: 12px;
-      border: 1px solid #e5e2dc;
-      padding: 22px 20px 20px;
-      width: 100%;
-      max-width: 420px;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.06);
-    }
-
-    .bestel-card-title {
-      color: #222;
-      font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-
-    .form-row {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 10px;
-    }
-
-    .form-label {
-      color: #444;
-      font-size: 0.85rem;
-    }
-
-    .form-input,
-    .form-select {
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: 6px;
-      border: 1px solid var(--input-border);
-      background: var(--input-bg);
-      color: #222;
-      font-size: 0.95rem;
-      outline: none;
-      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
-    }
-
-    .form-input::placeholder {
-      color: #a5a29b;
-    }
-
-    .form-input:focus,
-    .form-select:focus {
-      border-color: var(--oranje);
-      box-shadow: 0 0 0 1px rgba(255,85,0,0.45);
-      background: #fff;
-    }
-
-    .form-row-inline {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .form-row-inline .form-row {
-      flex: 1;
-      margin-bottom: 0;
-    }
-
-    .form-help {
-      color: #777;
-      font-size: 0.8rem;
-      margin-top: 2px;
-    }
-
-    .form-status {
-      color: #777;
-      font-size: 0.8rem;
-      margin-top: 8px;
-      min-height: 1.2em;
     }
 
     footer {
@@ -540,20 +322,16 @@
       align-items: center;
       justify-content: space-between;
     }
-
-    footer .logo { color: var(--wit); }
-
+    footer .logo { color: #fff; }
     footer p {
       font-size: 0.8rem;
       color: #555;
     }
-
     footer nav a {
       font-size: 0.8rem;
       color: #555;
       text-decoration: none;
       margin-left: 20px;
-      transition: color 0.2s;
     }
     footer nav a:hover { color: var(--oranje); }
 
@@ -569,10 +347,7 @@
       .hero-visual { display: none; }
       .features { grid-template-columns: 1fr 1fr; }
       .shirts-grid { grid-template-columns: 1fr; }
-      .bestel-section { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
-      .bestel-steps { align-items: stretch; }
-      footer { flex-direction: column; gap: 16px; text-align:center; padding: 32px 24px; }
-      footer nav { margin-top: 8px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px 24px; }
     }
   </style>
 </head>
@@ -582,54 +357,45 @@
     <a class="logo" href="index.html">VOETBALSHIRTS<span>NL</span></a>
     <ul class="nav-links">
       <li><a href="#shirts">Shirts</a></li>
-      <li><a href="#bestellen">Bestellen</a></li>
+      <li><a href="bestellen.html">Bestellen</a></li>
       <li><a href="gripsokken.html">Gripsokken</a></li>
       <li><a href="over-ons.html">Over ons</a></li>
-      <li><a href="#contact">Contact</a></li>
     </ul>
-    <div style="display:flex;align-items:center;gap:12px;">
-      <a href="https://wa.me/31630576584" class="btn-primary">WhatsApp</a>
-      <a href="https://wa.me/31630576584" class="whatsapp-icon" aria-label="WhatsApp contact">W</a>
-    </div>
+    <a href="https://wa.me/31630576584" class="btn-primary">WhatsApp</a>
   </nav>
 
   <section class="hero">
     <div class="hero-content">
-      <div class="hero-badge">Nederland Collectie 2025/26</div>
+      <div class="hero-badge">Nederland Collectie 2026</div>
       <h1>
         DRAAG<br>
         <span class="accent">ORANJE</span><br>
         MET TROTS
       </h1>
-
-      <!-- HERO-TEKST + GRIPSOKKEN-LINK -->
       <p>
-        Oranje shirts geïnspireerd op het Nederlands elftal. Thuisshirt en uitshirt nu beschikbaar.
+        Fan-versie shirts geïnspireerd op het Nederlands elftal. Thuisshirt en uitshirt 2026 nu beschikbaar.
         Snel geleverd, scherpe prijs.
       </p>
-
-      <p style="margin: 10px 0 0; font-weight:600; color:#FF5500;">
+      <p style="margin-top:10px; font-weight:600; color:#FF5500;">
         Ook meer grip in je schoen? Bekijk onze
         <a href="gripsokken.html" style="color:#FF5500; text-decoration:underline;">
           gripsokken voor maar €2,99 per paar
         </a>.
       </p>
-
       <div class="hero-cta">
-        <a href="#bestellen" class="btn-primary">Bestel nu</a>
+        <a href="bestellen.html" class="btn-primary">Bestel fan-versie</a>
         <a href="https://wa.me/31630576584" class="btn-secondary">WhatsApp</a>
       </div>
-      <!-- EINDE BLOK -->
     </div>
 
     <div class="hero-visual">
       <div class="shirt-card">
-        <img src="Oranje shirt.jpg" alt="Oranje thuisshirt 2025/26">
-        <div class="shirt-label">Thuisshirt</div>
+        <img src="Oranje shirt.jpg" alt="Fan-versie thuisshirt Nederland 2026">
+        <div class="shirt-label">Fan-versie thuis 2026</div>
       </div>
       <div class="shirt-card">
-        <img src="wit shirt.jpg" alt="Wit uitshirt 2025/26">
-        <div class="shirt-label">Uitshirt</div>
+        <img src="wit shirt.jpg" alt="Fan-versie uitshirt Nederland 2026">
+        <div class="shirt-label">Fan-versie uit 2026</div>
       </div>
     </div>
   </section>
@@ -637,32 +403,28 @@
   <div class="ticker" aria-hidden="true">
     <div class="ticker-inner">
       <span class="ticker-item">Snelle levering</span>
+      <span class="ticker-item">Fan-versie shirts 2026</span>
       <span class="ticker-item">Bestellen via WhatsApp</span>
-      <span class="ticker-item">Matchday shirts</span>
       <span class="ticker-item">Betalen via iDEAL of Tikkie</span>
-      <span class="ticker-item">Nederland 2025/26</span>
+      <span class="ticker-item">Nederland 2026</span>
       <span class="ticker-item">Gratis verzending</span>
       <span class="ticker-item">Snelle levering</span>
-      <span class="ticker-item">Bestellen via WhatsApp</span>
-      <span class="ticker-item">Matchday shirts</span>
-      <span class="ticker-item">Betalen via iDEAL of Tikkie</span>
-      <span class="ticker-item">Nederland 2025/26</span>
-      <span class="ticker-item">Gratis verzending</span>
+      <span class="ticker-item">Fan-versie shirts 2026</span>
     </div>
   </div>
 
   <section class="features">
     <div class="feature">
       <h3>Snelle levering</h3>
-      <p>Je shirt binnen 2–3 werkdagen thuis, mét track & trace.</p>
+      <p>Je fan-versie shirt 2026 binnen 2–3 werkdagen thuis, mét track & trace.</p>
     </div>
     <div class="feature">
       <h3>Bestellen zoals jij wilt</h3>
-      <p>Via de website of direct via WhatsApp, wat jij het makkelijkst vindt.</p>
+      <p>Via de bestelpagina of direct via WhatsApp, wat jij het makkelijkst vindt.</p>
     </div>
     <div class="feature">
-      <h3>Matchday shirts</h3>
-      <p>Strakke Oranje shirts om in te juichen, trainen of gewoon dagelijks te dragen.</p>
+      <h3>Fan-versie shirts</h3>
+      <p>Comfortabele fan-versie shirts om in te juichen, trainen of dagelijks te dragen.</p>
     </div>
     <div class="feature">
       <h3>Betalen via iDEAL of Tikkie</h3>
@@ -673,139 +435,55 @@
   <section class="shirts-section" id="shirts">
     <div class="section-header">
       <div>
-        <div class="section-label">Collectie 2025/26</div>
-        <h2 class="section-title">KIES JOUW<br>SHIRT</h2>
+        <div class="section-label">Collectie 2026</div>
+        <h2 class="section-title">KIES JOUW<br>FAN-VERSIE SHIRT</h2>
       </div>
     </div>
 
     <div class="shirts-grid">
       <div class="product-card">
         <div class="product-img">
-          <img src="Oranje shirt.jpg" alt="Oranje thuisshirt 2025/26">
-          <div class="product-badge">Populairste</div>
+          <img src="Oranje shirt.jpg" alt="Fan-versie thuisshirt Nederland 2026">
+          <div class="product-badge">Fan-versie</div>
         </div>
         <div class="product-info">
-          <h3>Thuisshirt</h3>
-          <p class="sub">Oranje — seizoen 2025/26</p>
+          <h3>Fan-versie thuisshirt</h3>
+          <p class="sub">Oranje — Nederland 2026</p>
           <div class="product-footer">
             <span class="price">€24,99</span>
-            <button class="btn-small" onclick="document.getElementById('shirt').value='Thuisshirt';window.location.hash='#bestellen';">Bestellen</button>
+            <a href="bestellen.html" class="btn-primary" style="font-size:0.8rem; padding:10px 20px;">Bestel fan-versie</a>
           </div>
         </div>
       </div>
 
       <div class="product-card">
         <div class="product-img">
-          <img src="wit shirt.jpg" alt="Wit uitshirt 2025/26">
+          <img src="wit shirt.jpg" alt="Fan-versie uitshirt Nederland 2026">
         </div>
         <div class="product-info">
-          <h3>Uitshirt</h3>
-          <p class="sub">Wit — seizoen 2025/26</p>
+          <h3>Fan-versie uitshirt</h3>
+          <p class="sub">Wit — Nederland 2026</p>
           <div class="product-footer">
             <span class="price">€24,99</span>
-            <button class="btn-small" onclick="document.getElementById('shirt').value='Uitshirt';window.location.hash='#bestellen';">Bestellen</button>
+            <a href="bestellen.html" class="btn-primary" style="font-size:0.8rem; padding:10px 20px;">Bestel fan-versie</a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="bestel-section" id="bestellen">
-    <div>
-      <h2>ZO SIMPEL<br>BESTEL JE BIJ<br><span>ONS</span></h2>
-      <p>Vul je gegevens in. De bestelling komt direct bij ons binnen, wij reageren zo snel mogelijk.</p>
-      <p style="color:#666;font-size:0.9rem;">Liever direct contact? Stuur een bericht via
-        <a href="https://wa.me/31630576584" style="color:#FF5500;text-decoration:none;">WhatsApp</a>.
-      </p>
-    </div>
-
-    <div class="bestel-steps">
-      <div class="bestel-card">
-        <div class="bestel-card-title">Bestel je shirt</div>
-
-        <form id="bestel-form" method="POST" action="https://formspree.io/f/xbdpjozq">
-          <div class="form-row">
-            <label for="naam" class="form-label">Naam</label>
-            <input id="naam" name="naam" type="text" required class="form-input" placeholder="Voor- en achternaam">
-          </div>
-
-          <div class="form-row">
-            <label for="adres" class="form-label">Adres</label>
-            <input id="adres" name="adres" type="text" required class="form-input" placeholder="Straat + huisnummer">
-          </div>
-
-          <div class="form-row">
-            <label for="postcode" class="form-label">Postcode + woonplaats</label>
-            <input id="postcode" name="postcode" type="text" required class="form-input" placeholder="Bijv. 1234AB Amsterdam">
-          </div>
-
-          <div class="form-row-inline">
-            <div class="form-row">
-              <label for="maat" class="form-label">Maat</label>
-              <input id="maat" name="maat" type="text" required class="form-input" placeholder="S, M, L, XL">
-            </div>
-            <div class="form-row">
-              <label for="shirt" class="form-label">Shirt</label>
-              <select id="shirt" name="shirt" required class="form-select">
-                <option value="Thuisshirt">Thuisshirt</option>
-                <option value="Uitshirt">Uitshirt</option>
-              </select>
-            </div>
-          </div>
-
-          <p class="form-help">Prijs per shirt: €24,99 – na het versturen betaal je veilig via Tikkie.</p>
-
-          <input type="hidden" name="_subject" value="Nieuwe bestelling voetbalshirt">
-
-          <button type="submit" class="btn-primary" style="border:none;cursor:pointer;width:100%;text-align:center;margin-top:10px;">
-            Verstuur bestelling & betaal
-          </button>
-
-          <p id="form-status" class="form-status"></p>
-        </form>
       </div>
     </div>
   </section>
 
   <footer id="contact">
     <a class="logo" href="index.html">VOETBALSHIRTS<span>NL</span></a>
-    <p>© 2025 VoetbalshirtsNL. Alle rechten voorbehouden.</p>
+    <p>© 2026 VoetbalshirtsNL. Alle rechten voorbehouden.</p>
     <nav>
       <a href="#shirts">Shirts</a>
-      <a href="#bestellen">Bestellen</a>
+      <a href="bestellen.html">Bestellen</a>
       <a href="gripsokken.html">Gripsokken</a>
       <a href="over-ons.html">Over ons</a>
       <a href="mailto:stan-zakelijk@hotmail.com">E-mail</a>
       <a href="https://wa.me/31630576584" class="whatsapp-icon" aria-label="WhatsApp contact">W</a>
     </nav>
   </footer>
-
-  <script>
-    const form = document.getElementById('bestel-form');
-    const statusEl = document.getElementById('form-status');
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const data = new FormData(form);
-
-      fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          statusEl.textContent = 'Bestelling ontvangen, je wordt nu doorgestuurd naar de betaalpagina...';
-          setTimeout(function () {
-            window.location.href = 'https://tikkie.me/pay/gi6odn2ep768og3bt7uv';
-          }, 1000);
-        } else {
-          statusEl.textContent = 'Er ging iets mis. Probeer het later opnieuw.';
-        }
-      }).catch(() => {
-        statusEl.textContent = 'Er ging iets mis. Controleer je verbinding.';
-      });
-    });
-  </script>
 
 </body>
 </html>
