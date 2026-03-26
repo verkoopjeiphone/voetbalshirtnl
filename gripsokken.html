@@ -24,7 +24,7 @@
       color:var(--tekst);
     }
 
-    /* Zelfde NAV als bestellen */
+    /* NAV – zelfde als bestellen */
     nav {
       position:fixed; top:0; left:0; right:0; height:68px;
       display:flex; align-items:center; justify-content:space-between;
@@ -59,14 +59,10 @@
       padding:96px 16px 32px;
     }
 
-    /* HERO GRIPSOCKEN */
+    /* HERO TEKST */
     .hero {
       max-width:960px;
       margin:0 auto 32px;
-      display:grid;
-      grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);
-      gap:32px;
-      align-items:center;
     }
 
     .badge {
@@ -93,87 +89,133 @@
       color:#555;
       line-height:1.6;
       margin-bottom:18px;
-      max-width:520px;
+      max-width:540px;
     }
 
-    .hero-list {
-      font-size:0.94rem;
-      color:#555;
-      margin-bottom:18px;
-      padding-left:16px;
-    }
-    .hero-list li { margin-bottom:4px; }
-
-    .btn-primary {
-      background:var(--oranje);
-      color:var(--wit);
-      font-family:'Barlow Condensed',sans-serif;
-      font-weight:700;
-      font-size:0.9rem;
-      letter-spacing:0.12em;
-      text-transform:uppercase;
-      border:none;
-      padding:10px 26px;
-      cursor:pointer;
-      text-decoration:none;
-      clip-path:polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
-      display:inline-block;
-    }
-    .btn-primary:hover { background:var(--oranje-donker); }
-
-    .hero-note {
-      font-size:0.82rem;
-      color:#777;
-      margin-top:6px;
-    }
-
-    .hero-image {
-      background:#111;
-      border-radius:12px;
-      padding:10px;
-      box-shadow:0 18px 40px rgba(0,0,0,0.3);
-    }
-    .hero-image img {
-      width:100%;
-      height:auto;
-      display:block;
-      border-radius:8px;
-    }
-
-    /* KAART MET INFO ONDERAAN */
-    .info-section {
+    /* GRID MET ALLE KLEUREN */
+    .socks-grid {
       max-width:960px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:20px;
+      margin:0 auto 32px;
     }
 
-    .info-card {
+    .socks-title {
+      font-family:'Barlow Condensed',sans-serif;
+      font-weight:800;
+      font-size:1.5rem;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      margin-bottom:16px;
+    }
+
+    .socks-grid-inner {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:18px;
+    }
+
+    .sock-card {
       background:var(--wit);
       border-radius:12px;
       border:1px solid var(--kaart-rand);
-      padding:16px 18px 18px;
-      box-shadow:0 10px 26px rgba(0,0,0,0.05);
-      font-size:0.94rem;
+      padding:10px 10px 14px;
+      box-shadow:0 10px 24px rgba(0,0,0,0.05);
+      text-align:center;
+      font-size:0.9rem;
       color:#555;
-      line-height:1.6;
     }
 
-    .info-title {
+    .sock-card img {
+      width:100%;
+      height:200px;
+      object-fit:cover;
+      border-radius:10px;
+      margin-bottom:8px;
+    }
+
+    .sock-name {
       font-family:'Barlow Condensed',sans-serif;
       font-weight:700;
-      font-size:1.2rem;
+      font-size:1.05rem;
       text-transform:uppercase;
-      margin-bottom:6px;
+      margin-bottom:2px;
+    }
+    .sock-desc {
+      font-size:0.85rem;
+      color:#777;
+    }
+
+    /* BESTELFORMULIER GRIPSOCKEN */
+    .form-section {
+      max-width:640px;
+      margin:0 auto;
+    }
+
+    .form-card {
+      background:var(--wit);
+      border-radius:12px;
+      border:1px solid var(--kaart-rand);
+      padding:20px 20px 18px;
+      box-shadow:0 16px 40px rgba(0,0,0,0.06);
+    }
+
+    .form-title {
+      font-family:'Barlow Condensed',sans-serif;
+      font-weight:700;
+      font-size:1.1rem;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      margin-bottom:10px;
+    }
+
+    .form-row {
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      margin-bottom:9px;
+    }
+    .form-label {
+      font-size:0.8rem;
+      color:#444;
+    }
+    .form-input, .form-select {
+      width:100%;
+      padding:6px 9px;
+      border-radius:4px;
+      border:1px solid #d6d3ce;
+      font-size:0.9rem;
+    }
+
+    .form-help {
+      font-size:0.78rem;
+      color:#777;
+      margin-top:4px;
+    }
+
+    button[type="submit"] {
+      margin-top:12px;
+      width:100%;
+      text-align:center;
+      background:var(--oranje); color:var(--wit);
+      font-family:'Barlow Condensed',sans-serif;
+      font-weight:700; font-size:0.95rem;
+      letter-spacing:0.08em; text-transform:uppercase;
+      border:none; padding:9px 22px;
+      cursor:pointer;
+      clip-path:polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+    }
+    button[type="submit"]:hover { background:var(--oranje-donker); }
+
+    .form-status {
+      font-size:0.8rem;
+      color:#777;
+      margin-top:8px;
+      min-height:1.2em;
+      text-align:center;
     }
 
     @media(max-width:900px){
       nav{padding:0 20px;}
       main{padding:86px 16px 32px;}
-      .hero{
-        grid-template-columns:1fr;
-      }
     }
   </style>
 </head>
@@ -191,55 +233,116 @@
 
   <main>
     <section class="hero">
-      <div>
-        <div class="badge">Gripsokken</div>
-        <h1>Meer grip <span>bij elke actie</span></h1>
+      <div class="badge">Gripsokken</div>
+      <h1>Meer grip <span>bij elke stap</span></h1>
+      <p class="hero-sub">
+        Gripsokken geven je extra controle in je voetbalschoenen. Minder schuiven, meer stabiliteit bij sprints,
+        kappen en draaien – ideaal voor wedstrijden én trainingen.
+      </p>
+    </section>
 
-        <p class="hero-sub">
-          Onze gripsokken voorkomen dat je voet in je schoen schuift. Dat geeft meer stabiliteit bij sprints,
-          kapbewegingen en schoten, en verkleint de kans op blaren.
-        </p>
+    <!-- ALLE KLEUREN -->
+    <section class="socks-grid">
+      <h2 class="socks-title">Kleuren gripsokken</h2>
+      <div class="socks-grid-inner">
+        <article class="sock-card">
+          <img src="grip-wit.jpg" alt="Witte gripsokken">
+          <div class="sock-name">Wit</div>
+          <div class="sock-desc">Past goed bij uittenues en lichte schoenen.</div>
+        </article>
 
-        <ul class="hero-list">
-          <li>Siliconen gripzones onder de voet en bij de hak.</li>
-          <li>Comfortabele, ademende stof voor trainen en wedstrijden.</li>
-          <li>Eén maat, geschikt voor de meeste volwassenen (ongeveer 39–45).</li>
-        </ul>
+        <article class="sock-card">
+          <img src="grip-zwart.jpg" alt="Zwarte gripsokken">
+          <div class="sock-name">Zwart</div>
+          <div class="sock-desc">Neutraal en stoer, geschikt bij bijna alle schoenen.</div>
+        </article>
 
-        <a href="https://wa.me/31630576584?text=Ik%20wil%20graag%20gripsokken%20bestellen.%20Kun%20je%20me%20meer%20informatie%20sturen%3F" class="btn-primary" target="_blank" rel="noopener">
-          Bestel gripsokken via WhatsApp
-        </a>
+        <article class="sock-card">
+          <img src="grip-blauw.jpg" alt="Blauwe gripsokken">
+          <div class="sock-name">Blauw</div>
+          <div class="sock-desc">Voor teams met blauwe kleding of als opvallende accentkleur.</div>
+        </article>
 
-        <p class="hero-note">
-          Klik op de knop, stuur het bericht in WhatsApp en we reageren zo snel mogelijk met prijs en levertijd.
-        </p>
-      </div>
-
-      <div class="hero-image">
-        <!-- Gebruik hier je eigen gripsokken-afbeelding, bijv. gripsokken.jpg -->
-        <img src="grip-wit.jpg" alt="Gripsokken met extra grip">
+        <!-- Voeg hier extra kleuren toe als je meer afbeeldingen hebt -->
       </div>
     </section>
 
-    <section class="info-section">
-      <article class="info-card">
-        <h2 class="info-title">Waarom gripsokken?</h2>
-        <p>
-          In een normale voetbalsok kan je voet bij snelle richtingsveranderingen gaan schuiven.
-          Met gripsokken blijft je voet stabieler in de schoen, waardoor je scherper kunt afzetten en preciezer kunt
-          afremmen.
-        </p>
-      </article>
+    <!-- BESTELFORMULIER MET KLEUR + HOEVEELHEID VIA WHATSAPP -->
+    <section class="form-section">
+      <div class="form-card">
+        <div class="form-title">Bestel gripsokken</div>
 
-      <article class="info-card">
-        <h2 class="info-title">Hoe bestellen?</h2>
-        <p>
-          Via de WhatsApp-knop stuur je ons direct een bericht. We vragen je naar je schoenmaat en kleurkeuze en
-          sturen vervolgens alle betaal- en verzendinformatie terug in de chat.
-        </p>
-      </article>
+        <form id="grip-form">
+          <div class="form-row">
+            <label for="naam" class="form-label">Naam</label>
+            <input id="naam" name="naam" type="text" required class="form-input" placeholder="Voor- en achternaam">
+          </div>
+
+          <div class="form-row">
+            <label for="kleur" class="form-label">Kleur</label>
+            <select id="kleur" name="kleur" required class="form-select">
+              <option value="Wit">Wit</option>
+              <option value="Zwart">Zwart</option>
+              <option value="Blauw">Blauw</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="aantal" class="form-label">Aantal paar</label>
+            <input id="aantal" name="aantal" type="number" min="1" required class="form-input" value="1">
+          </div>
+
+          <div class="form-row">
+            <label for="schoenmaat" class="form-label">Schoenmaat (ongeveer)</label>
+            <input id="schoenmaat" name="schoenmaat" type="text" required class="form-input" placeholder="Bijv. 42">
+          </div>
+
+          <p class="form-help">
+            Na het versturen opent automatisch WhatsApp met je bestelling. Controleer het bericht en stuur het door
+            om je bestelling af te ronden.
+          </p>
+
+          <button type="submit">Verstuur bestelling via WhatsApp</button>
+
+          <p id="form-status" class="form-status"></p>
+        </form>
+      </div>
     </section>
   </main>
+
+  <script>
+    const gripForm = document.getElementById('grip-form');
+    const gripStatus = document.getElementById('form-status');
+
+    gripForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const naam = document.getElementById('naam').value.trim();
+      const kleur = document.getElementById('kleur').value;
+      const aantal = document.getElementById('aantal').value.trim();
+      const schoenmaat = document.getElementById('schoenmaat').value.trim();
+
+      if (!naam || !kleur || !aantal || !schoenmaat) {
+        gripStatus.textContent = 'Vul alle velden in voordat je verstuurt.';
+        return;
+      }
+
+      const phone = '31630576584';
+
+      const text =
+        'Bestelling gripsokken:%0A%0A' +
+        'Naam: ' + encodeURIComponent(naam) + '%0A' +
+        'Kleur: ' + encodeURIComponent(kleur) + '%0A' +
+        'Aantal paar: ' + encodeURIComponent(aantal) + '%0A' +
+        'Schoenmaat: ' + encodeURIComponent(schoenmaat) + '%0A%0A' +
+        'Stuur je de prijs en betaalgegevens even terug?';
+
+      const url = 'https://wa.me/' + phone + '?text=' + text;
+
+      gripStatus.textContent = 'WhatsApp wordt geopend...';
+      window.open(url, '_blank');
+    });
+  </script>
 
 </body>
 </html>
