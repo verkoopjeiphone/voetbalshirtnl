@@ -111,12 +111,12 @@
     }
     .shirt-card img {
       width:100%;
-      height:auto;        /* hele foto zichtbaar */
-      object-fit:contain; /* niks afgesneden */
+      height:240px;       /* vaste boxhoogte, beide gelijk */
+      object-fit:contain; /* volledige foto zichtbaar */
       border-radius:10px;
       margin-bottom:8px;
       display:block;
-      background:#ffffff; /* witte achtergrond */
+      background:#ffffff; /* witte randen indien nodig */
     }
     .shirt-title {
       font-family:'Barlow Condensed',sans-serif;
@@ -350,11 +350,6 @@
     bestelForm.addEventListener('submit', function() {
       bestelStatus.textContent = 'Bestelling wordt verstuurd...';
     });
-  </script>
-
-</body>
-</html>
-
   </script>
 
 </body>
