@@ -23,39 +23,23 @@
       color:var(--tekst);
     }
 
-    /* BOVENBALK */
+    /* Eenvoudige bovenbalk met alleen logo-link */
     nav {
       position:fixed; top:0; left:0; right:0; height:68px;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:0 48px;
+      display:flex; align-items:center;
+      padding:0 32px;
       background:rgba(255,255,255,0.96);
       border-bottom:1px solid #eee;
       z-index:100;
     }
     .logo {
       font-family:'Barlow Condensed',sans-serif;
-      font-weight:900; font-size:1.45rem;
+      font-weight:900; font-size:1.6rem;
       letter-spacing:-0.5px; text-decoration:none; color:var(--zwart);
     }
     .logo span { color:var(--oranje); }
-    .nav-links { list-style:none; display:flex; gap:36px; }
-    .nav-links a {
-      font-size:0.875rem; font-weight:600; letter-spacing:0.06em;
-      text-transform:uppercase; text-decoration:none; color:var(--tekst);
-    }
-    .nav-links a:hover { color:var(--oranje); }
-    .btn-primary {
-      background:var(--oranje); color:var(--wit);
-      font-family:'Barlow Condensed',sans-serif;
-      font-weight:700; font-size:0.95rem;
-      letter-spacing:0.08em; text-transform:uppercase;
-      border:none; padding:9px 22px;
-      cursor:pointer; text-decoration:none;
-      clip-path:polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
-    }
-    .btn-primary:hover { background:var(--oranje-donker); }
 
-    /* CENTREREN VAN HET GEHELE BLOK */
+    /* Hele blok centreren */
     main {
       min-height:100vh;
       display:flex;
@@ -65,7 +49,7 @@
     }
 
     .bestel-container {
-      max-width:640px;         /* totale breedte van blok */
+      max-width:640px;
       width:100%;
     }
 
@@ -96,14 +80,13 @@
       line-height:1.6;
     }
 
-    /* WITTE FORMULIERKAART – SMALLER GEMAAKT */
     .bestel-card {
       background:var(--wit);
       border-radius:12px;
       border:1px solid var(--kaart-rand);
       padding:22px 22px 20px;
       box-shadow:0 16px 40px rgba(0,0,0,0.06);
-      max-width:540px;        /* smaller dan container → meer ruimte links/rechts */
+      max-width:540px;
     }
 
     .bestel-card-title {
@@ -119,10 +102,9 @@
     }
     .form-label { font-size:0.8rem; color:#444; }
 
-    /* KLEINERE WITTE INVOERBALKEN */
     .form-input, .form-select {
       width:100%;
-      padding:6px 9px;       /* lager/kleiner */
+      padding:6px 9px;
       border-radius:4px;
       border:1px solid #d6d3ce;
       font-size:0.9rem;
@@ -136,10 +118,18 @@
       margin-top:12px;
       width:100%;
       text-align:center;
+      background:var(--oranje); color:var(--wit);
+      font-family:'Barlow Condensed',sans-serif;
+      font-weight:700; font-size:0.95rem;
+      letter-spacing:0.08em; text-transform:uppercase;
+      border:none; padding:9px 22px;
+      cursor:pointer;
+      clip-path:polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
     }
+    button[type="submit"]:hover { background:var(--oranje-donker); }
 
     @media(max-width:900px){
-      nav{padding:0 24px;}
+      nav{padding:0 20px;}
       .bestel-container{max-width:100%;}
       .bestel-card{max-width:100%;}
     }
@@ -149,13 +139,6 @@
 
   <nav>
     <a class="logo" href="index.html">VOETBALSHIRTS<span>NL</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html#shirts">Shirts</a></li>
-      <li><a href="bestellen.html">Bestellen</a></li>
-      <li><a href="gripsokken.html">Gripsokken</a></li>
-      <li><a href="over-ons.html">Over ons</a></li>
-    </ul>
-    <a href="https://wa.me/31630576584" class="btn-primary">WhatsApp</a>
   </nav>
 
   <main>
@@ -201,7 +184,7 @@
 
           <p class="form-help">Prijs per fan-versie shirt: €24,99 – na het versturen betaal je veilig via Tikkie.</p>
 
-          <button type="submit" class="btn-primary">
+          <button type="submit">
             Verstuur bestelling & betaal
           </button>
 
